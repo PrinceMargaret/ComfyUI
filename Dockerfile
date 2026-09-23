@@ -46,7 +46,8 @@ RUN uv pip install -r requirements.txt \
     && uv pip install runpod requests
 
 COPY . /comfyui
-COPY docker/runpod/handler.py docker/runpod/start.sh docker/runpod/runpod_model_paths.yaml /opt/runpod/
+COPY handler.py /handler.py
+COPY docker/runpod/start.sh docker/runpod/runpod_model_paths.yaml /opt/runpod/
 RUN chmod +x /opt/runpod/start.sh \
     && mkdir -p input output models temp user
 
